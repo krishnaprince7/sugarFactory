@@ -8,15 +8,13 @@ import {
   BarChart2, 
   Settings, 
   Bell,
-  Menu, // Hamburger icon ke liye
-  X     // Close icon ke liye
+  Menu, 
+  X     
 } from 'lucide-react';
 
 const Header = () => {
-  // Mobile menu ka state handle karne ke liye
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Desktop and Mobile dono ke nav links ka styling
   const navLinkClasses = ({ isActive }) => 
     `flex items-center gap-3 px-4 py-3 md:py-2 rounded-md transition-colors font-medium ${
       isActive 
@@ -24,17 +22,14 @@ const Header = () => {
         : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50' 
     }`;
 
-  // Menu band karne ka function (jab link par click ho jaye)
   const closeMenu = () => setIsMobileMenuOpen(false);
 
   return (
     <>
       <header className="flex items-center justify-between px-4 md:px-6 py-3 bg-white border-b border-gray-200">
         
-        {/* Left: Hamburger (Mobile), Logo, Title & Desktop Nav */}
         <div className="flex items-center gap-4 md:gap-8">
           
-          {/* Hamburger Icon (Only visible on mobile) */}
           <button 
             className="p-2 -ml-2 text-gray-600 rounded-md md:hidden hover:bg-gray-100"
             onClick={() => setIsMobileMenuOpen(true)}
@@ -42,7 +37,6 @@ const Header = () => {
             <Menu className="w-6 h-6" />
           </button>
 
-          {/* Logo and Title */}
           <div className="flex items-center gap-3">
             <div className="flex items-center justify-center w-8 h-8 bg-blue-800 rounded-md">
               <BarChart className="w-5 h-5 text-white" />

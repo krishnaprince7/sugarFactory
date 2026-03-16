@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navigation, MapPin, Camera } from 'lucide-react';
+import AllFactoriesMap from './AllFactoriesMap';
 
 const FactoryMapComponent = () => {
   // Factory Data
@@ -32,11 +33,10 @@ const FactoryMapComponent = () => {
   const [selectedFactory, setSelectedFactory] = useState(null);
 
   return (
-    <div className="w-full font-sans text-slate-900 bg-white">
-      {/* Yahan max-w-[1400px] hata kar w-full kar diya gaya hai */}
+    <>
+    <div className="w-full font-sans text-slate-900 bg-white mb-[25px]">
       <div className="w-full">
         
-        {/* Title & Recenter Button Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
           <div>
             <h1 className="text-3xl font-bold text-gray-900">Factory Network Map</h1>
@@ -50,17 +50,14 @@ const FactoryMapComponent = () => {
           </button>
         </div>
 
-        {/* Two Column Layout for Map & Details */}
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           
-          {/* Left Column: Map Area */}
           <div className="lg:col-span-3 bg-[#F8FAFC] rounded-xl border border-slate-200 relative min-h-[500px] flex items-center justify-center p-8 overflow-hidden">
             
-            {/* Grid of Pins */}
             <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-x-12 gap-y-16 w-full max-w-5xl">
               {factories.map((factory) => (
                 <div 
-                  key={factory.id} 
+                key={factory.id} 
                   className="flex justify-center group cursor-pointer"
                   onClick={() => setSelectedFactory(factory)}
                   title={factory.name}
@@ -70,14 +67,12 @@ const FactoryMapComponent = () => {
                       size={28} 
                       className={factory.status === 'alert' ? 'text-amber-400' : 'text-emerald-500'} 
                     />
-                    {/* Small notification dot */}
                     <div className={`absolute -top-0.5 -right-0.5 w-3 h-3 rounded-full border-2 border-white ${factory.status === 'alert' ? 'bg-amber-400' : 'bg-emerald-500'}`} />
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Floating Legend */}
             <div className="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm p-3 rounded-lg border border-slate-200 shadow-sm text-xs font-medium text-slate-600 flex flex-col gap-2 z-10">
               <div className="flex items-center gap-2">
                 <div className="w-2.5 h-2.5 rounded-full bg-emerald-500"></div>
@@ -94,10 +89,8 @@ const FactoryMapComponent = () => {
             </div>
           </div>
 
-          {/* Right Column: Details Panel */}
           <div className="lg:col-span-1 bg-white rounded-xl border border-slate-200 flex flex-col min-h-[300px] lg:min-h-[500px]">
             {selectedFactory ? (
-              /* Active State */
               <div className="p-6 h-full flex flex-col">
                 <h3 className="text-lg font-bold text-slate-800 mb-2">{selectedFactory.name}</h3>
                 <div className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-sm font-medium w-fit ${selectedFactory.status === 'alert' ? 'bg-amber-50 text-amber-700 border border-amber-200' : 'bg-emerald-50 text-emerald-700 border border-emerald-200'}`}>
@@ -131,6 +124,10 @@ const FactoryMapComponent = () => {
         </div>
       </div>
     </div>
+
+    <AllFactoriesMap/>
+
+                </>
   );
 };
 

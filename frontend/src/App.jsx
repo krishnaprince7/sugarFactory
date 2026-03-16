@@ -4,6 +4,7 @@ import Layout from './components/Admin/Layout';
 import Dashboard from './components/Admin/Dashboard/Dashboard';
 import Factory from './components/Admin/Factories/Factory';
 import FactoryNetworkMap from './components/Admin/Map/FactoryNetworkMap';
+import Analytics from './components/Admin/Analytics/Analytics';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="factories" element={<Factory />} />
           <Route path="map" element={<FactoryNetworkMap />} />
+          <Route path="analytics" element= {<Analytics/>}/>
           
 
         </Route>
