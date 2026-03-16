@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom'; // Navigation hook import kiya
 import { 
   FiActivity, 
   FiEye, 
@@ -11,7 +12,8 @@ import {
 import Dashboard2 from './Dashboard2';
 
 const Dashboard = () => {
-  // Data arrays to keep the JSX clean and scalable
+  const navigate = useNavigate(); // Navigate initialize kiya
+
   const topRowCards = [
     {
       id: 1,
@@ -20,8 +22,9 @@ const Dashboard = () => {
       percent: '+0%',
       percentColor: 'text-teal-600',
       value: '23',
-      title: 'Active Factories',
+      title: 'Active Map',
       desc: 'All systems operational',
+      path: '/Map', 
     },
     {
       id: 2,
@@ -30,8 +33,9 @@ const Dashboard = () => {
       percent: '+2%',
       percentColor: 'text-teal-600',
       value: '184',
-      title: 'Live Cameras',
+      title: 'Live Map',
       desc: '8 cameras per factory',
+      path: '/Map', 
     },
     {
       id: 3,
@@ -40,8 +44,9 @@ const Dashboard = () => {
       percent: '+15%',
       percentColor: 'text-orange-500',
       value: '47',
-      title: "Today's Alerts",
+      title: "Today's Factories",
       desc: '23 under review',
+      path: '/Factories', 
     },
     {
       id: 4,
@@ -50,8 +55,9 @@ const Dashboard = () => {
       percent: '+2.1%',
       percentColor: 'text-teal-600',
       value: '94.2%',
-      title: 'Fraud Detection Rate',
+      title: 'Fraud Detection Analytics',
       desc: 'AI accuracy this week',
+      path: '/Analytics', 
     },
   ];
 
@@ -65,6 +71,7 @@ const Dashboard = () => {
       value: '₹87.6M',
       title: 'Fraud Prevented (This Month)',
       desc: 'Estimated value saved',
+      path: '/Analytics', 
     },
     {
       id: 6,
@@ -75,6 +82,7 @@ const Dashboard = () => {
       value: '4.2 min',
       title: 'Avg Response Time',
       desc: 'Alert to resolution',
+      path: '/Analytics', 
     },
     {
       id: 7,
@@ -85,13 +93,20 @@ const Dashboard = () => {
       value: '876',
       title: 'Verified Frauds',
       desc: '70.2% verification rate',
+      path: '/Analytics', 
     },
   ];
 
-  // Reusable Card Component - Hover animation added here
+  // StatCard mein onClick handler lagaya
   const StatCard = ({ item }) => (
-    <div className="flex flex-col p-5 bg-white border border-gray-100 rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer">
-      {/* Icon and Percentage */}
+    <div 
+      onClick={() => {
+        if (item.path) {
+          navigate(item.path);
+        }
+      }}
+      className="flex flex-col p-5 bg-white border border-gray-100 rounded-xl shadow-[0_2px_10px_-4px_rgba(0,0,0,0.05)] transition-all duration-300 hover:scale-[1.03] hover:shadow-lg cursor-pointer"
+    >
       <div className="flex items-start justify-between mb-4">
         <div className={`p-2 rounded-lg ${item.iconBg}`}>
           {item.icon}
@@ -120,34 +135,33 @@ const Dashboard = () => {
 
   return (
     <>
+      <div className="w-full ">
+        
+        {/* Page Header */}
+        <div className="mb-6">
+          <h1 className="text-3xl font-bold text-gray-900">HO Dashboard</h1>
+          <p className="mt-1 text-sm text-gray-500">
+            AI-Based Cane Weighment Surveillance
+          </p>
+        </div>
 
-    <div className="w-full ">
-      
-      {/* Page Header */}
-      <div className="mb-6">
-        <h1 className="text-3xl font-bold text-gray-900">HO Dashboard</h1>
-        <p className="mt-1 text-sm text-gray-500">
-          AI-Based Cane Weighment Surveillance
-        </p>
+        {/* Top Row: 4 Cards */}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {topRowCards.map((item) => (
+            <StatCard key={item.id} item={item} />
+          ))}
+        </div>
+
+        {/* Bottom Row: 3 Cards */}
+        <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-3">
+          {bottomRowCards.map((item) => (
+            <StatCard key={item.id} item={item} />
+          ))}
+        </div>
+
       </div>
 
-      {/* Top Row: 4 Cards */}
-      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
-        {topRowCards.map((item) => (
-          <StatCard key={item.id} item={item} />
-        ))}
-      </div>
-
-      {/* Bottom Row: 3 Cards */}
-      <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-3">
-        {bottomRowCards.map((item) => (
-          <StatCard key={item.id} item={item} />
-        ))}
-      </div>
-
-    </div>
-
-    <Dashboard2/>
+      <Dashboard2/>
     </>
   );
 };

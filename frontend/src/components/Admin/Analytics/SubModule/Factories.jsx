@@ -92,7 +92,7 @@ const FactoriesPage = () => {
               name="Total Incidents" // Label matching legend
               fill="#1d4ed8" // Exact Blue color, same as image_5.png
               radius={[2, 2, 0, 0]} // Small top corner radius
-              barSize={35} // Bar width, same as image_5.png
+              barSize={55} // Bar width, same as image_5.png
             />
             
             {/* Green Bars for Accuracy % - Mapped to Right Y-Axis */}
@@ -102,7 +102,7 @@ const FactoriesPage = () => {
               name="Accuracy %" // Label matching legend
               fill="#16a34a" // Exact Green color, same as image_5.png
               radius={[2, 2, 0, 0]} // Small top corner radius
-              barSize={35} // Bar width, same as image_5.png
+              barSize={55} // Bar width, same as image_5.png
             />
             
           </BarChart>

@@ -6,13 +6,11 @@ import Cameras from "./SubModules/Cameras"
 import System from "./SubModules/System"
 
 const Setting = () => {
-  // State to manage active tab (Default is 'System' as per screenshot)
   const [activeTab, setActiveTab] = useState('users');
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
+    <div className="w-full ">
       
-      {/* ================= Header Section ================= */}
       <div className="mb-6">
         <h1 className="text-3xl font-bold text-gray-900">System Settings</h1>
         <p className="mt-1 text-sm text-gray-500">
@@ -20,7 +18,6 @@ const Setting = () => {
         </p>
       </div>
 
-      {/* ================= Tabs Navigation ================= */}
       <div className="flex items-center w-full bg-[#F1F5F9] ">
         <div className="flex w-full md:w-[600px] p-1 space-x-1 bg-[#F1F5F9] rounded-lg">
           
@@ -71,26 +68,21 @@ const Setting = () => {
         </div>
       </div>
 
-      {/* ================= Tab Content Area ================= */}
       <div className="mt-6">
         
-        {/* 1. Users Tab Content */}
         {activeTab === 'users' && (
                 <Users/>
        
         )}
 
-        {/* 2. Alerts Tab Content */}
         {activeTab === 'alerts' && (
            <Alerts/>
         )}
 
-        {/* 3. Cameras Tab Content */}
         {activeTab === 'cameras' && (
             <Cameras/>
         )}
 
-        {/* 4. System Tab Content (Exact UI from your screenshot) */}
         {activeTab === 'system' && (
             <System/>
         )}
