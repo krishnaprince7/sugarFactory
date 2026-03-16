@@ -6,13 +6,15 @@ import Factory from './components/Admin/Factories/Factory';
 import FactoryNetworkMap from './components/Admin/Map/FactoryNetworkMap';
 import Analytics from './components/Admin/Analytics/Analytics';
 import Setting from './components/Admin/Settings/Setting';
+import Home from './components/Admin/Home';
 
 const App = () => {
   return (
       <Routes>
+          <Route path="/" element={<Home />} />
         <Route path="/" element={<Layout />}>
           
-          <Route index element={<Navigate to="/dashboard" />} />
+          {/* <Route index element={<Navigate to="/dashboard" />} /> */}
 
           <Route path="dashboard" element={<Dashboard />} />
           <Route path="factories" element={<Factory />} />
