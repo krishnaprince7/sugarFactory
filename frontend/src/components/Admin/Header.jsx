@@ -48,7 +48,8 @@ const Header = () => {
               <BarChart className="w-5 h-5 text-white" />
             </div>
             <span className="text-lg font-bold tracking-wide text-gray-900">
-              CANE AI F
+           
+              CANE AI 
             </span>
           </div>
 
