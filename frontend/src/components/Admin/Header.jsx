@@ -49,7 +49,7 @@ const Header = () => {
             </div>
             <span className="text-lg font-bold tracking-wide text-gray-900">
            
-              CANE AI 
+              CANE AI  
             </span>
           </div>
 
