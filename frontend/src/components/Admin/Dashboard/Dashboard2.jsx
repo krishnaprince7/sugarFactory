@@ -38,7 +38,6 @@ const Dashboard2 = () => {
 
   return (
     <div className="w-full  mt-6">
-      {/* Grid Layout: 2 Columns (Left is wider) */}
       <div className=" cursor-pointer grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div
           onClick={() => {
@@ -48,7 +47,6 @@ const Dashboard2 = () => {
         >
           <SectionCard title="Factory Network Status">
             <div className="bg-[#EAF1F8] rounded-xl p-6 relative flex-1 min-h-[435px]">
-              {/* Factory Grid */}
               <div className="flex flex-wrap gap-4">
                 {[
                   {
@@ -111,7 +109,6 @@ const Dashboard2 = () => {
                 ))}
               </div>
 
-              {/* Legend Bottom Right */}
               <div className="absolute bottom-4 right-4 bg-white rounded-full px-4 py-2 shadow-sm flex items-center gap-4 text-xs font-medium text-gray-600">
                 <div className="flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-green-500"></span>{" "}
@@ -126,7 +123,6 @@ const Dashboard2 = () => {
           </SectionCard>
         </div>
 
-        {/* ================= 2. Recent Alerts ================= */}
         <div className="lg:col-span-1 flex flex-col h-full">
           <SectionCard
             title="Recent Alerts"
@@ -175,7 +171,6 @@ const Dashboard2 = () => {
                   key={i}
                   className="relative bg-white border border-gray-100 rounded-lg p-3 shadow-sm flex flex-col group hover:border-gray-300 transition-colors cursor-pointer"
                 >
-                  {/* Left colored accent border */}
                   <div
                     className={`absolute left-0 top-0 bottom-0 w-1 rounded-l-lg ${alert.borderLine}`}
                   ></div>
@@ -211,7 +206,6 @@ const Dashboard2 = () => {
           </SectionCard>
         </div>
 
-        {/* ================= 3. Fraud Type Distribution Graph ================= */}
         <div 
           onClick={()=>{
             navigate("/analytics")

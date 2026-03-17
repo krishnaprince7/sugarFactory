@@ -15,7 +15,7 @@ import Hourly from  './SubModule/Hourly'
 import Accuracy from './SubModule/Accuracy';
 import Monthly from './SubModule/Monthly';
 
-// Chart ke liye dummy data (Trends tab ke liye)
+
 const trendData = [
   { name: 'Week 1', total: 45, verified: 32, falsePos: 12 },
   { name: 'Week 2', total: 52, verified: 38, falsePos: 14 },
@@ -34,7 +34,7 @@ const Analytics = () => {
   return (
     <div className="w-full">
       
-      {/* Header Section */}
+      
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Analytics & Reports</h1>
@@ -55,7 +55,7 @@ const Analytics = () => {
         </div>
       </div>
 
-      {/* Stats Cards Grid */}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
         <div className="bg-white border border-slate-200 rounded-xl p-4 shadow-sm flex flex-col justify-between">
           <div className="flex items-center justify-between mb-2">
@@ -102,7 +102,7 @@ const Analytics = () => {
         </div>
       </div>
 
-      {/* Tabs Switcher Section */}
+     
       <div className="flex bg-slate-100/80 p-1.5 rounded-lg w-fit overflow-x-auto max-w-full no-scrollbar mb-6">
         {tabs.map((tab) => (
           <button
@@ -119,29 +119,29 @@ const Analytics = () => {
         ))}
       </div>
 
-      {/* Dynamic Tab Content Area */}
       
-      {/* 1. Trends Tab Content */}
+      
+      
       {activeTab === 'Trends' && (
        <Trends/>
       )}
 
-      {/* 2. Factories Tab Content */}
+      
       {activeTab === 'Factories' && (
       <Factories/>
       )}
 
-      {/* 3. Hourly Tab Content */}
+     
       {activeTab === 'Hourly' && (
        <Hourly/>
       )}
 
-      {/* 4. Accuracy Tab Content */}
+      
       {activeTab === 'Accuracy' && (
        <Accuracy/>
       )}
 
-      {/* 5. Monthly Tab Content */}
+      
       {activeTab === 'Monthly' && (
        <Monthly/>
       )}

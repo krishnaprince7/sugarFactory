@@ -2,11 +2,10 @@ import React from 'react';
 import { FiCalendar, FiDownload, FiTrendingUp, FiTrendingDown } from 'react-icons/fi';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-// Data mimicking the visual trends from image_3.png and the tooltip point from image_4.png
 const data = [
   { date: 'Jan 1', total: 44, verified: 31, falseP: 12 },
   { date: 'Jan 5', total: 50, verified: 36, falseP: 13 },
-  { date: 'Jan 10', total: 48, verified: 35, falseP: 13 }, // Tooltip point from image_4.png
+  { date: 'Jan 10', total: 48, verified: 35, falseP: 13 }, 
   { date: 'Jan 15', total: 60, verified: 43, falseP: 17 },
   { date: 'Jan 20', total: 54, verified: 40, falseP: 14 },
   { date: 'Jan 25', total: 57, verified: 42, falseP: 15 },
@@ -83,12 +82,11 @@ const TrendsPage = () => {
                 iconSize={14}
                 formatter={(value) => <span className="text-sm text-gray-600">{value}</span>}
               />
-              {/* Lines matching the colors from image_4.png legend */}
               <Line
                 name="Total Incidents"
                 type="monotone"
                 dataKey="total"
-                stroke="#2563EB" // Blue line
+                stroke="#2563EB"
                 strokeWidth={2}
                 dot={{ stroke: '#2563EB', strokeWidth: 2, r: 4, fill: 'white' }}
                 activeDot={{ stroke: '#2563EB', strokeWidth: 2, r: 6, fill: 'white' }}
@@ -97,7 +95,7 @@ const TrendsPage = () => {
                 name="Verified Fraud"
                 type="monotone"
                 dataKey="verified"
-                stroke="#EF4444" // Red line
+                stroke="#EF4444" 
                 strokeWidth={2}
                 dot={{ stroke: '#EF4444', strokeWidth: 2, r: 4, fill: 'white' }}
                 activeDot={{ stroke: '#EF4444', strokeWidth: 2, r: 6, fill: 'white' }}
@@ -106,7 +104,7 @@ const TrendsPage = () => {
                 name="False Positive"
                 type="monotone"
                 dataKey="falseP"
-                stroke="#F59E0B" // Yellow/Orange line
+                stroke="#F59E0B" 
                 strokeWidth={2}
                 dot={{ stroke: '#F59E0B', strokeWidth: 2, r: 4, fill: 'white' }}
                 activeDot={{ stroke: '#F59E0B', strokeWidth: 2, r: 6, fill: 'white' }}

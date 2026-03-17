@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom'; // Navigation hook import kiya
+import { useNavigate } from 'react-router-dom'; 
 import { 
   FiActivity, 
   FiEye, 
@@ -12,7 +12,7 @@ import {
 import Dashboard2 from './Dashboard2';
 
 const Dashboard = () => {
-  const navigate = useNavigate(); // Navigate initialize kiya
+  const navigate = useNavigate(); 
 
   const topRowCards = [
     {
@@ -97,7 +97,7 @@ const Dashboard = () => {
     },
   ];
 
-  // StatCard mein onClick handler lagaya
+  
   const StatCard = ({ item }) => (
     <div 
       onClick={() => {
@@ -121,12 +121,12 @@ const Dashboard = () => {
         {item.value}
       </h3>
       
-      {/* Title */}
+      
       <p className="text-sm font-medium text-gray-600">
         {item.title}
       </p>
       
-      {/* Description */}
+      
       <p className="mt-1 text-xs text-gray-400">
         {item.desc}
       </p>
@@ -137,7 +137,6 @@ const Dashboard = () => {
     <>
       <div className="w-full ">
         
-        {/* Page Header */}
         <div className="mb-6">
           <h1 className="text-3xl font-bold text-gray-900">HO Dashboard</h1>
           <p className="mt-1 text-sm text-gray-500">
@@ -145,14 +144,12 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Top Row: 4 Cards */}
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4">
           {topRowCards.map((item) => (
             <StatCard key={item.id} item={item} />
           ))}
         </div>
 
-        {/* Bottom Row: 3 Cards */}
         <div className="grid grid-cols-1 gap-5 mt-5 md:grid-cols-3">
           {bottomRowCards.map((item) => (
             <StatCard key={item.id} item={item} />

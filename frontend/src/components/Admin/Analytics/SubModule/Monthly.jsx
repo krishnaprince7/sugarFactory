@@ -10,8 +10,6 @@ import {
   ResponsiveContainer 
 } from 'recharts';
 
-// Data strictly estimated from your screenshots
-// Sep exact values taken from the tooltip in the first image
 const monthlyData = [
   { name: 'Jul', incidents: 1150, fraud: 800, valueSaved: 8000000 },
   { name: 'Aug', incidents: 1200, fraud: 850, valueSaved: 8500000 },
@@ -22,7 +20,6 @@ const monthlyData = [
   { name: 'Jan', incidents: 1250, fraud: 860, valueSaved: 8800000 },
 ];
 
-// Custom Tooltip for the First Chart (matching the image exactly)
 const CustomTooltipChart1 = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -40,7 +37,6 @@ const CustomTooltipChart1 = ({ active, payload, label }) => {
   return null;
 };
 
-// Custom Tooltip for the Second Chart
 const CustomTooltipChart2 = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
@@ -59,7 +55,6 @@ const Monthly = () => {
   return (
     <div className="w-full flex flex-col gap-6 animate-in fade-in duration-300">
       
-      {/* ---------------- CHART 1: Monthly Incident & Fraud Trends ---------------- */}
       <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
         <h3 className="text-xl font-bold text-slate-800 mb-8">Monthly Incident & Fraud Trends</h3>
         
@@ -68,7 +63,7 @@ const Monthly = () => {
             <BarChart
               data={monthlyData}
               margin={{ top: 10, right: 10, left: -10, bottom: 0 }}
-              barGap={4} // Space between grouped bars
+              barGap={4} 
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
               
@@ -84,12 +79,12 @@ const Monthly = () => {
                 axisLine={true} 
                 tickLine={false} 
                 tick={{ fill: '#64748b', fontSize: 13 }}
-                ticks={[0, 350, 700, 1050, 1400]} // Exact ticks from image
+                ticks={[0, 350, 700, 1050, 1400]} 
               />
               
               <Tooltip 
                 content={<CustomTooltipChart1 />} 
-                cursor={{ fill: '#e2e8f0', opacity: 0.6 }} // Grey hover effect behind bars
+                cursor={{ fill: '#e2e8f0', opacity: 0.6 }} 
               />
               
               <Legend 
@@ -100,7 +95,6 @@ const Monthly = () => {
                 formatter={(value) => <span className="text-sm font-medium text-slate-600 ml-1 mr-4">{value}</span>}
               />
               
-              {/* Blue Bar */}
               <Bar 
                 dataKey="incidents" 
                 name="Total Incidents" 
@@ -111,7 +105,6 @@ const Monthly = () => {
                 animationDuration={1200}
               />
               
-              {/* Red Bar */}
               <Bar 
                 dataKey="fraud" 
                 name="Verified Fraud" 
@@ -126,7 +119,6 @@ const Monthly = () => {
         </div>
       </div>
 
-      {/* ---------------- CHART 2: Estimated Fraud Prevention Value ---------------- */}
       <div className="bg-white border border-slate-200 rounded-xl p-6 shadow-sm">
         <h3 className="text-xl font-bold text-slate-800 mb-8">Estimated Fraud Prevention Value (₹)</h3>
         
@@ -134,7 +126,7 @@ const Monthly = () => {
           <ResponsiveContainer width="100%" height="100%">
             <BarChart
               data={monthlyData}
-              margin={{ top: 10, right: 10, left: 20, bottom: 0 }} // Extra left margin for big numbers
+              margin={{ top: 10, right: 10, left: 20, bottom: 0 }} 
             >
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
               
@@ -150,8 +142,8 @@ const Monthly = () => {
                 axisLine={true} 
                 tickLine={false} 
                 tick={{ fill: '#64748b', fontSize: 13 }}
-                ticks={[0, 2500000, 5000000, 7500000, 10000000]} // Exact ticks from image
-                width={80} // Extra width taaki labels cut na ho
+                ticks={[0, 2500000, 5000000, 7500000, 10000000]} 
+                width={80} 
               />
               
               <Tooltip 
@@ -167,15 +159,14 @@ const Monthly = () => {
                 formatter={(value) => <span className="text-sm font-medium text-slate-600 ml-1 mr-4">{value}</span>}
               />
               
-              {/* Green Bar */}
               <Bar 
                 dataKey="valueSaved" 
                 name="Value Saved" 
                 fill="#16a34a" 
-                barSize={150} // Thicker bar as shown in second image
+                barSize={150} 
                 radius={[2, 2, 0, 0]}
                 isAnimationActive={true}
-                animationDuration={1200} // Bottom to top animation
+                animationDuration={1200} 
               />
             </BarChart>
           </ResponsiveContainer>
